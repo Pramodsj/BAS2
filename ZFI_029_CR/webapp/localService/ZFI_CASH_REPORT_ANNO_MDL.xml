@@ -1,0 +1,94 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/zfi_cash_report_srv/$metadata"><edmx:Include Namespace="ZFI_CASH_REPORT_SRV" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zfi_cash_report_anno_mdl.v1">
+			<Annotations Target="ZFI_CASH_REPORT_SRV.zfi_cov_cashType">
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Cash Report"/><PropertyValue Property="TypeNamePlural" String="Cash Report"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" String="">
+									<Annotation Term="Core.Messages">
+										<Collection>
+											<Record><PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/><PropertyValue Property="message" String="Property 'Name' of annotation 'UI.HEADERINFO.TITLE' in proj./view 'zfi_cov_cash' not found"/><PropertyValue Property="severity" String="error"/></Record>
+										</Collection>
+									</Annotation>
+								</PropertyValue>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" String="">
+									<Annotation Term="Core.Messages">
+										<Collection>
+											<Record><PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/><PropertyValue Property="message"
+												String="Property 'Description' of annotation 'UI.HEADERINFO.DESCRIPTION' in proj./view 'zfi_cov_cash' not found"/><PropertyValue Property="severity" String="error"/></Record>
+										</Collection>
+									</Annotation>
+								</PropertyValue>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="Value" Path="CompanyCode"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Business Partner"/><PropertyValue Property="Value" Path="BusinessPartner"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="BP Name"/><PropertyValue Property="Value" Path="BPName"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Document Number"/><PropertyValue Property="Value" Path="DocumentNo"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice No."/><PropertyValue Property="Value" Path="InvoiceNo"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Posting Date"/><PropertyValue Property="Value" Path="PostingDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Amount"/><PropertyValue Property="Value" Path="Amount"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Document Type"/><PropertyValue Property="Value" Path="DocumentType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Credit Representative"/><PropertyValue Property="Value" Path="CreditRep"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Category"/><PropertyValue Property="Value" Path="Category"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="Value" Path="Currency"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="Value" Path="CompanyCode"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Business Partner"/><PropertyValue Property="Value" Path="BusinessPartner"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="BP Name"/><PropertyValue Property="Value" Path="BPName"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Document Number"/><PropertyValue Property="Value" Path="DocumentNo"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice No."/><PropertyValue Property="Value" Path="InvoiceNo"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Posting Date"/><PropertyValue Property="Value" Path="PostingDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Amount"/><PropertyValue Property="Value" Path="Amount"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Document Type"/><PropertyValue Property="Value" Path="DocumentType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Credit Representative"/><PropertyValue Property="Value" Path="CreditRep"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Category"/><PropertyValue Property="Value" Path="Category"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="Value" Path="Currency"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.PresentationVariant">
+					<Record>
+						<PropertyValue Property="SortOrder">
+							<Collection>
+								<Record Type="Common.SortOrderType"><PropertyValue Property="Property" PropertyPath="DocumentNo"/><PropertyValue Property="Descending" Bool="false"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>CompanyCode</PropertyPath>
+						<PropertyPath>PostingDate</PropertyPath>
+						<PropertyPath>BusinessPartner</PropertyPath>
+						<PropertyPath>CreditRep</PropertyPath>
+						<PropertyPath>DocumentType</PropertyPath>
+						<PropertyPath>DocumentNo</PropertyPath>
+						<PropertyPath>GLAccount</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="ZFI_CASH_REPORT_SRV.zfi_cov_doctype_f4Type/Spras"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZFI_CASH_REPORT_SRV.zfi_cov_doctype_f4Type/Applk"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZFI_CASH_REPORT_SRV.zfi_cov_glacc_f4Type/Spras"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZFI_CASH_REPORT_SRV.zfi_cov_glacc_f4Type/Ktopl"><Annotation Term="UI.Hidden"/></Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

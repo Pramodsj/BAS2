@@ -1,0 +1,188 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZFI_CASH_REPORT_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="zfi_cov_bp_f4Type" sap:label="Consumption View - Search help for BP" sap:content-version="1">
+				<Key><PropertyRef Name="BusinessPartner"/></Key><Property Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"
+					sap:label="Business Partner" sap:quickinfo="Business Partner Number"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="zfi_cov_cashType" sap:label="Consumption View - Cash Report" sap:content-version="1">
+				<Key><PropertyRef Name="DocumentNo"/><PropertyRef Name="CreditRep"/></Key><Property Name="DocumentNo" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase"
+					sap:filter-restriction="multi-value" sap:label="Document Number" sap:quickinfo="Number of Contract Accts Rec. &amp; Payable Doc."
+					sap:value-list="standard"/><Property Name="CreditRep" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"
+					sap:filter-restriction="multi-value" sap:label="Business Partner" sap:quickinfo="Business Partner Number" sap:value-list="standard"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:filter-restriction="multi-value"
+					sap:required-in-filter="true" sap:label="Company Code" sap:value-list="standard"/><Property Name="BusinessPartner" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:filter-restriction="multi-value"
+					sap:label="Business Partner" sap:quickinfo="Business Partner Number" sap:value-list="standard"/><Property Name="BPName" Type="Edm.String" MaxLength="81"/><Property Name="InvoiceNo" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Ref. document number"
+					sap:quickinfo="Reference document number"/><Property Name="PostingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:filter-restriction="multi-value"
+					sap:required-in-filter="true" sap:label="Posting Date" sap:quickinfo="Posting Date in the Document"/><Property Name="Amount" Type="Edm.Decimal" Precision="14" Scale="3"/><Property Name="DocumentType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:filter-restriction="multi-value"
+					sap:label="Document Type" sap:value-list="standard"/><Property Name="Category" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Category"
+					sap:quickinfo="Document Category"/><Property Name="Currency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/><Property Name="GLAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:filter-restriction="multi-value"
+					sap:label="G/L Account" sap:quickinfo="General ledger account" sap:value-list="standard"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/><NavigationProperty Name="to_bpf4" Relationship="ZFI_CASH_REPORT_SRV.assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321"
+					FromRole="FromRole_assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321" ToRole="ToRole_assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321"/><NavigationProperty Name="to_compcodef4" Relationship="ZFI_CASH_REPORT_SRV.assoc_67F8957087C4CC2F7ED70B834EEF3AE5"
+					FromRole="FromRole_assoc_67F8957087C4CC2F7ED70B834EEF3AE5" ToRole="ToRole_assoc_67F8957087C4CC2F7ED70B834EEF3AE5"/><NavigationProperty Name="to_crdrepf4" Relationship="ZFI_CASH_REPORT_SRV.assoc_90374F16A5ECC3E1D6618A16757442C7"
+					FromRole="FromRole_assoc_90374F16A5ECC3E1D6618A16757442C7" ToRole="ToRole_assoc_90374F16A5ECC3E1D6618A16757442C7"/><NavigationProperty Name="to_docnumf4" Relationship="ZFI_CASH_REPORT_SRV.assoc_956C80EA2164DEE838D0F0E74902646E"
+					FromRole="FromRole_assoc_956C80EA2164DEE838D0F0E74902646E" ToRole="ToRole_assoc_956C80EA2164DEE838D0F0E74902646E"/><NavigationProperty Name="to_doctypef4" Relationship="ZFI_CASH_REPORT_SRV.assoc_BD0427AFF406D80D55DE0FF04E9FAEDD"
+					FromRole="FromRole_assoc_BD0427AFF406D80D55DE0FF04E9FAEDD" ToRole="ToRole_assoc_BD0427AFF406D80D55DE0FF04E9FAEDD"/><NavigationProperty Name="to_glaccf4" Relationship="ZFI_CASH_REPORT_SRV.assoc_53ECDE9728F3C422AFF4231850E71F39"
+					FromRole="FromRole_assoc_53ECDE9728F3C422AFF4231850E71F39" ToRole="ToRole_assoc_53ECDE9728F3C422AFF4231850E71F39"/></EntityType>
+			<EntityType Name="zfi_cov_compcode_f4Type" sap:label="Consumption View - Search help for Company Code" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/><Property Name="ComapnyCodeDesc" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="zfi_cov_docnum_f4Type" sap:label="Consumption View - Search help for Document Number" sap:content-version="1">
+				<Key><PropertyRef Name="DocumentNo"/></Key><Property Name="DocumentNo" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Document Number"
+					sap:quickinfo="Number of Contract Accts Rec. &amp; Payable Doc."/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="zfi_cov_doctype_f4Type" sap:label="Consumption View - Search help for Document type" sap:content-version="1">
+				<Key><PropertyRef Name="Spras"/><PropertyRef Name="Applk"/><PropertyRef Name="DocumentType"/></Key><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/><Property Name="Applk" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Application Area"/><Property Name="DocumentType" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Document Type"/><Property Name="DocumentTypeDescr" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Document Type Description"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="zfi_cov_glacc_f4Type" sap:label="Consumption View - Search help for G/L Account" sap:content-version="1">
+				<Key><PropertyRef Name="Spras"/><PropertyRef Name="Ktopl"/><PropertyRef Name="GLAccount"/></Key><Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language Key"/><Property Name="Ktopl" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Chart of Accounts"/><Property Name="GLAccount" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Account"
+					sap:quickinfo="G/L Account Number"/><Property Name="GLAccountDescr" Type="Edm.String" MaxLength="50" sap:label="G/L Acct Long Text" sap:quickinfo="G/L Account Long Text"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<Association Name="assoc_67F8957087C4CC2F7ED70B834EEF3AE5" sap:content-version="1">
+				<End Type="ZFI_CASH_REPORT_SRV.zfi_cov_cashType" Multiplicity="1" Role="FromRole_assoc_67F8957087C4CC2F7ED70B834EEF3AE5"><OnDelete Action="Cascade"/></End><End Type="ZFI_CASH_REPORT_SRV.zfi_cov_compcode_f4Type" Multiplicity="*" Role="ToRole_assoc_67F8957087C4CC2F7ED70B834EEF3AE5"/></Association>
+			<Association Name="assoc_90374F16A5ECC3E1D6618A16757442C7" sap:content-version="1">
+				<End Type="ZFI_CASH_REPORT_SRV.zfi_cov_cashType" Multiplicity="1" Role="FromRole_assoc_90374F16A5ECC3E1D6618A16757442C7"><OnDelete Action="Cascade"/></End><End Type="ZFI_CASH_REPORT_SRV.zfi_cov_bp_f4Type" Multiplicity="*" Role="ToRole_assoc_90374F16A5ECC3E1D6618A16757442C7"/></Association>
+			<Association Name="assoc_956C80EA2164DEE838D0F0E74902646E" sap:content-version="1">
+				<End Type="ZFI_CASH_REPORT_SRV.zfi_cov_cashType" Multiplicity="1" Role="FromRole_assoc_956C80EA2164DEE838D0F0E74902646E"><OnDelete Action="Cascade"/></End><End Type="ZFI_CASH_REPORT_SRV.zfi_cov_docnum_f4Type" Multiplicity="*" Role="ToRole_assoc_956C80EA2164DEE838D0F0E74902646E"/></Association>
+			<Association Name="assoc_BD0427AFF406D80D55DE0FF04E9FAEDD" sap:content-version="1">
+				<End Type="ZFI_CASH_REPORT_SRV.zfi_cov_cashType" Multiplicity="1" Role="FromRole_assoc_BD0427AFF406D80D55DE0FF04E9FAEDD"><OnDelete Action="Cascade"/></End><End Type="ZFI_CASH_REPORT_SRV.zfi_cov_doctype_f4Type" Multiplicity="*" Role="ToRole_assoc_BD0427AFF406D80D55DE0FF04E9FAEDD"/></Association>
+			<Association Name="assoc_53ECDE9728F3C422AFF4231850E71F39" sap:content-version="1">
+				<End Type="ZFI_CASH_REPORT_SRV.zfi_cov_cashType" Multiplicity="1" Role="FromRole_assoc_53ECDE9728F3C422AFF4231850E71F39"><OnDelete Action="Cascade"/></End><End Type="ZFI_CASH_REPORT_SRV.zfi_cov_glacc_f4Type" Multiplicity="*" Role="ToRole_assoc_53ECDE9728F3C422AFF4231850E71F39"/></Association>
+			<Association Name="assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321" sap:content-version="1">
+				<End Type="ZFI_CASH_REPORT_SRV.zfi_cov_cashType" Multiplicity="1" Role="FromRole_assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321"><OnDelete Action="Cascade"/></End><End Type="ZFI_CASH_REPORT_SRV.zfi_cov_bp_f4Type" Multiplicity="*" Role="ToRole_assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321"/></Association>
+			<EntityContainer Name="ZFI_CASH_REPORT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="zfi_cov_bp_f4" EntityType="ZFI_CASH_REPORT_SRV.zfi_cov_bp_f4Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="zfi_cov_cash" EntityType="ZFI_CASH_REPORT_SRV.zfi_cov_cashType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:requires-filter="true" sap:content-version="1"/><EntitySet Name="zfi_cov_compcode_f4" EntityType="ZFI_CASH_REPORT_SRV.zfi_cov_compcode_f4Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="zfi_cov_docnum_f4" EntityType="ZFI_CASH_REPORT_SRV.zfi_cov_docnum_f4Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="zfi_cov_doctype_f4" EntityType="ZFI_CASH_REPORT_SRV.zfi_cov_doctype_f4Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="zfi_cov_glacc_f4" EntityType="ZFI_CASH_REPORT_SRV.zfi_cov_glacc_f4Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+				<AssociationSet Name="assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321" Association="ZFI_CASH_REPORT_SRV.assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="zfi_cov_cash" Role="FromRole_assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321"/><End EntitySet="zfi_cov_bp_f4" Role="ToRole_assoc_CE5A11BCFB043D2B68CCFAE9DFF3F321"/></AssociationSet>
+				<AssociationSet Name="assoc_67F8957087C4CC2F7ED70B834EEF3AE5" Association="ZFI_CASH_REPORT_SRV.assoc_67F8957087C4CC2F7ED70B834EEF3AE5"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="zfi_cov_cash" Role="FromRole_assoc_67F8957087C4CC2F7ED70B834EEF3AE5"/><End EntitySet="zfi_cov_compcode_f4" Role="ToRole_assoc_67F8957087C4CC2F7ED70B834EEF3AE5"/></AssociationSet>
+				<AssociationSet Name="assoc_956C80EA2164DEE838D0F0E74902646E" Association="ZFI_CASH_REPORT_SRV.assoc_956C80EA2164DEE838D0F0E74902646E"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="zfi_cov_cash" Role="FromRole_assoc_956C80EA2164DEE838D0F0E74902646E"/><End EntitySet="zfi_cov_docnum_f4" Role="ToRole_assoc_956C80EA2164DEE838D0F0E74902646E"/></AssociationSet>
+				<AssociationSet Name="assoc_53ECDE9728F3C422AFF4231850E71F39" Association="ZFI_CASH_REPORT_SRV.assoc_53ECDE9728F3C422AFF4231850E71F39"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="zfi_cov_cash" Role="FromRole_assoc_53ECDE9728F3C422AFF4231850E71F39"/><End EntitySet="zfi_cov_glacc_f4" Role="ToRole_assoc_53ECDE9728F3C422AFF4231850E71F39"/></AssociationSet>
+				<AssociationSet Name="assoc_90374F16A5ECC3E1D6618A16757442C7" Association="ZFI_CASH_REPORT_SRV.assoc_90374F16A5ECC3E1D6618A16757442C7"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="zfi_cov_cash" Role="FromRole_assoc_90374F16A5ECC3E1D6618A16757442C7"/><End EntitySet="zfi_cov_bp_f4" Role="ToRole_assoc_90374F16A5ECC3E1D6618A16757442C7"/></AssociationSet>
+				<AssociationSet Name="assoc_BD0427AFF406D80D55DE0FF04E9FAEDD" Association="ZFI_CASH_REPORT_SRV.assoc_BD0427AFF406D80D55DE0FF04E9FAEDD"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="zfi_cov_cash" Role="FromRole_assoc_BD0427AFF406D80D55DE0FF04E9FAEDD"/><End EntitySet="zfi_cov_doctype_f4" Role="ToRole_assoc_BD0427AFF406D80D55DE0FF04E9FAEDD"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.zfi_cov_cashType/DocumentNo">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Consumption View - Search help for Document Number"/><PropertyValue Property="CollectionPath" String="zfi_cov_docnum_f4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="DocumentNo"/><PropertyValue Property="ValueListProperty" String="DocumentNo"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.zfi_cov_cashType/CreditRep">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Consumption View - Search help for BP"/><PropertyValue Property="CollectionPath" String="zfi_cov_bp_f4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CreditRep"/><PropertyValue Property="ValueListProperty" String="BusinessPartner"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.zfi_cov_cashType/CompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Consumption View - Search help for Company Code"/><PropertyValue Property="CollectionPath" String="zfi_cov_compcode_f4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ComapnyCodeDesc"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.zfi_cov_cashType/BusinessPartner">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Consumption View - Search help for BP"/><PropertyValue Property="CollectionPath" String="zfi_cov_bp_f4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessPartner"/><PropertyValue Property="ValueListProperty" String="BusinessPartner"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.zfi_cov_cashType/DocumentType">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Consumption View - Search help for Document type"/><PropertyValue Property="CollectionPath" String="zfi_cov_doctype_f4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="DocumentType"/><PropertyValue Property="ValueListProperty" String="DocumentType"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Spras"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Applk"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="DocumentTypeDescr"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.zfi_cov_cashType/GLAccount">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Consumption View - Search help for G/L Account"/><PropertyValue Property="CollectionPath" String="zfi_cov_glacc_f4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="GLAccount"/><PropertyValue Property="ValueListProperty" String="GLAccount"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Spras"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Ktopl"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="GLAccountDescr"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.ZFI_CASH_REPORT_SRV_Entities">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_CASH_REPORT_SRV.ZFI_CASH_REPORT_SRV_Entities/zfi_cov_cash">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record><PropertyValue Property="RequiresFilter" Bool="true"/>
+						<PropertyValue Property="FilterExpressionRestrictions">
+							<Collection>
+								<Record><PropertyValue Property="Property" PropertyPath="DocumentNo"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="CreditRep"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="CompanyCode"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="BusinessPartner"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="PostingDate"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="DocumentType"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="GLAccount"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="RequiredProperties">
+							<Collection>
+								<PropertyPath>CompanyCode</PropertyPath>
+								<PropertyPath>PostingDate</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZFI_CASH_REPORT_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZFI_CASH_REPORT_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

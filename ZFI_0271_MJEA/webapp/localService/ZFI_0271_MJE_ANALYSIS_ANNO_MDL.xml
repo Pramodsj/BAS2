@@ -1,0 +1,110 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/zfi_0271_mje_analysis_srv/$metadata"><edmx:Include Namespace="ZFI_0271_MJE_ANALYSIS_SRV" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zfi_0271_mje_analysis_anno_mdl.v1">
+			<Annotations Target="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType">
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="MJE Analysis report"/><PropertyValue Property="TypeNamePlural" String="MJE Analysis report"/></Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Document Category"/><PropertyValue Property="Value" Path="DocumentCategory"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Billing Document"/><PropertyValue Property="Value" Path="BillingDocument"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Document"/><PropertyValue Property="Value" Path="InvoiceDocument"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill CreatedOn"/><PropertyValue Property="Value" Path="BillCreatedOn"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Src Transaction Type"/><PropertyValue Property="Value" Path="SrcTransactionType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Src Transaction ID"/><PropertyValue Property="Value" Path="SrcTransactionID"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Item Status"/><PropertyValue Property="Value" Path="BillItemStatus"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Sub Procress"/><PropertyValue Property="Value" Path="SubProcress"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Item Type"/><PropertyValue Property="Value" Path="BillItemType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Application Area"/><PropertyValue Property="Value" Path="ApplicationArea"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Baseline Date"/><PropertyValue Property="Value" Path="BaselineDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Target Date"/><PropertyValue Property="Value" Path="BillTargetDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Item Origin Date"/><PropertyValue Property="Value" Path="BillItemOriginDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Item Origin Time"/><PropertyValue Property="Value" Path="BillItemOriginTime"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Created On"/><PropertyValue Property="Value" Path="CreatedOn"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Created At"/><PropertyValue Property="Value" Path="CreatedAt"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Item Amt"/><PropertyValue Property="Value" Path="BillItemAmt"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Item Currency"/><PropertyValue Property="Value" Path="BillItemCurrency"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bit Quantity"/><PropertyValue Property="Value" Path="BitQuantity"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bit Qty Unit"/><PropertyValue Property="Value" Path="BitQtyUnit"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Posting Line Item"/><PropertyValue Property="Value" Path="PostingLineItem"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Division"/><PropertyValue Property="Value" Path="Division"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="Value" Path="CompanyCode"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Business Area"/><PropertyValue Property="Value" Path="BusinessArea"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Profit Center"/><PropertyValue Property="Value" Path="ProfitCenter"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Main Transaction Line Item"/><PropertyValue Property="Value" Path="MainTransactionLineItem"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Sub Transaction Doc Item"/><PropertyValue Property="Value" Path="SubTransactionDocItem"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Acc Determ ID"/><PropertyValue Property="Value" Path="AccDetermID"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Tax Included"/><PropertyValue Property="Value" Path="TaxIncluded"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Tax Det Type"/><PropertyValue Property="Value" Path="TaxDetType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Tax Date Type"/><PropertyValue Property="Value" Path="TaxDateType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Tax Determination Code"/><PropertyValue Property="Value" Path="TaxDeterminationCode"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Tax On Sales/Purc"/><PropertyValue Property="Value" Path="TaxOnSalesPurc"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Tax Jurisdiction"/><PropertyValue Property="Value" Path="TaxJurisdiction"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Order Number"/><PropertyValue Property="Value" Path="OrderNumber"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Main Bill Item text"/><PropertyValue Property="Value" Path="MainBillItemtext"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Translation Date"/><PropertyValue Property="Value" Path="TranslationDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Exchange Rate"/><PropertyValue Property="Value" Path="ExchangeRate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Cost Center"/><PropertyValue Property="Value" Path="CostCenter"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Material Number"/><PropertyValue Property="Value" Path="MaterialNumber"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="WBS Element"/><PropertyValue Property="Value" Path="WBSElement"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="PO Number"/><PropertyValue Property="Value" Path="PONumber"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="PO Type"/><PropertyValue Property="Value" Path="POType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Billing Behaviour"/><PropertyValue Property="Value" Path="BillingBehaviour"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Connectivity"/><PropertyValue Property="Value" Path="Connectivity"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Contract Term"/><PropertyValue Property="Value" Path="ContractTerm"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="End User CSN"/><PropertyValue Property="Value" Path="EndUserCSN"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="GL AccountNo"/><PropertyValue Property="Value" Path="GLAccountNo"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="License Usage"/><PropertyValue Property="Value" Path="LicenseUsage"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="License Deployment"/><PropertyValue Property="Value" Path="LicenseDeployment"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Order Action"/><PropertyValue Property="Value" Path="OrderAction"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Order ReasonCode"/><PropertyValue Property="Value" Path="OrderReasonCode"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Reference"/><PropertyValue Property="Value" Path="InvoiceReference"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Reversal Date"/><PropertyValue Property="Value" Path="ReversalDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Reversal Reason"/><PropertyValue Property="Value" Path="ReversalReason"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Reversal Transaction Reference"/><PropertyValue Property="Value" Path="ReversalTransactionReference"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Sales District"/><PropertyValue Property="Value" Path="SalesDistrict"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Reference"/><PropertyValue Property="Value" Path="Reference"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Delivered Country"/><PropertyValue Property="Value" Path="DeliveredCountry"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="JE Preparer"/><PropertyValue Property="Value" Path="JEPreparer"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="JE Approver"/><PropertyValue Property="Value" Path="JEApprover"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="JE Purpose"/><PropertyValue Property="Value" Path="JEPurpose"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Assignment"/><PropertyValue Property="Value" Path="Assignment"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="HSN No"/><PropertyValue Property="Value" Path="HSNNo"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Baseline Invoice"/><PropertyValue Property="Value" Path="BaselineInvoice"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Title"/><PropertyValue Property="Value" Path="InvoiceTitle"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Document Header Text"/><PropertyValue Property="Value" Path="DocumentHeaderText"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="ShipToCSN"/><PropertyValue Property="Value" Path="ShipToCSN"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Payment Terms"/><PropertyValue Property="Value" Path="PaymentTerms"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Other Notes"/><PropertyValue Property="Value" Path="OtherNotes"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Process"/><PropertyValue Property="Value" Path="BillProcess"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Bill Type"/><PropertyValue Property="Value" Path="BillType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Lock"/><PropertyValue Property="Value" Path="InvoiceLock"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Process"/><PropertyValue Property="Value" Path="InvoiceProcess"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Invoice Type"/><PropertyValue Property="Value" Path="InvoiceType"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Reconciliation Key"/><PropertyValue Property="Value" Path="ReconciliationKey"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Posting Date"/><PropertyValue Property="Value" Path="PostingDate"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Total Amount"/><PropertyValue Property="Value" Path="TotalAmount"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="FICA DocumentNo"/><PropertyValue Property="Value" Path="FICADocumentNo"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Business Partner"/><PropertyValue Property="Value" Path="BusinessPartner"/><Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/></Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>BusinessPartner</PropertyPath>
+						<PropertyPath>BillItemType</PropertyPath>
+						<PropertyPath>CreatedOn</PropertyPath>
+						<PropertyPath>BillCreatedOn</PropertyPath>
+						<PropertyPath>BillingDocument</PropertyPath>
+						<PropertyPath>InvoiceDocument</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

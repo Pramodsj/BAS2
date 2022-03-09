@@ -1,0 +1,162 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZFI_0271_MJE_ANALYSIS_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="ZFI_COV_BILLDOC_F4Type" sap:label="Search help for billing document" sap:content-version="1">
+				<Key><PropertyRef Name="BillingDocument"/></Key><Property Name="BillingDocument" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative"
+					sap:label="Billing Document" sap:quickinfo="Number of Billing Document"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ZFI_COV_INVDOC_F4Type" sap:label="Search help for Invoice Document" sap:content-version="1">
+				<Key><PropertyRef Name="InvoiceDocument"/></Key><Property Name="InvoiceDocument" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative"
+					sap:label="Invoicing Document" sap:quickinfo="Number of Invoicing Document"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ZFI_COV_MJE_ANALYSISType" sap:label="Consumption view for MJE Analysis report" sap:content-version="1">
+				<Key><PropertyRef Name="DocumentCategory"/><PropertyRef Name="BillingDocument"/><PropertyRef Name="InvoiceDocument"/><PropertyRef Name="BillCreatedOn"/><PropertyRef Name="BitGrpno"/><PropertyRef Name="Bitbillcno"/></Key><Property Name="DocumentCategory" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="UpperCase"
+					sap:label="Source Document Cat." sap:quickinfo="Category of Source Document To Be Invoiced"/><Property Name="BillingDocument" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative"
+					sap:required-in-filter="false" sap:label="Billing Document" sap:quickinfo="Number of Billing Document" sap:value-list="standard"/><Property Name="InvoiceDocument" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative"
+					sap:filter-restriction="multi-value" sap:required-in-filter="false" sap:label="Invoicing Document"
+					sap:quickinfo="Number of Invoicing Document" sap:value-list="standard"/><Property Name="BillCreatedOn" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:required-in-filter="false"
+					sap:label="Billed On" sap:quickinfo="Date on Which Billing Document Was Created"/><Property Name="BitGrpno" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:label="Billable Items Group"
+					sap:quickinfo="Grouping of Billable Items in Billing Document"/><Property Name="Bitbillcno" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="NonNegative" sap:label="Sequence Number"
+					sap:quickinfo="Sequence Number of Billed Item of Billing Document"/><Property Name="SrcTransactionType" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Source Trans. Type"
+					sap:quickinfo="Source Transaction Type"/><Property Name="SrcTransactionID" Type="Edm.String" MaxLength="22" sap:label="Source Trans.ID" sap:quickinfo="Source Transaction ID"/><Property Name="BillItemStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Status"
+					sap:quickinfo="Status of Billable Item"/><Property Name="SubProcress" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Subprocess"
+					sap:quickinfo="Subprocess of Billing"/><Property Name="BillItemType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:filter-restriction="multi-value"
+					sap:required-in-filter="false" sap:label="Billable Item Type" sap:quickinfo="Type of Billable Item" sap:value-list="standard"/><Property Name="ApplicationArea" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Application Area"/><Property Name="BusinessPartner" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:filter-restriction="multi-value"
+					sap:required-in-filter="false" sap:label="Business Partner" sap:quickinfo="Business Partner Number for Billing and Invoicing"
+					sap:value-list="standard"/><Property Name="BaselineDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Baseline Date"
+					sap:quickinfo="Baseline Date for Period Assignment in Billing"/><Property Name="BillTargetDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Bill Starting From"
+					sap:quickinfo="Target Date for Billing"/><Property Name="BillItemOriginDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date of Origin"
+					sap:quickinfo="Date of Origin of Billable Item"/><Property Name="BillItemOriginTime" Type="Edm.Time" Precision="0" sap:label="Created At"/><Property Name="CreatedOn" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:required-in-filter="false" sap:label="Created On"/><Property Name="CreatedAt" Type="Edm.Time" Precision="0" sap:label="Created At"/><Property Name="BillItemAmt" Type="Edm.Decimal" Precision="14" Scale="3" sap:unit="BillItemCurrency" sap:label="Billable Item Amt"
+					sap:quickinfo="Amount of Billable Item"/><Property Name="BillItemCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency of Billable Item"
+					sap:semantics="currency-code"/><Property Name="BitQuantity" Type="Edm.Decimal" Precision="31" Scale="14" sap:unit="BitQtyUnit" sap:label="Billing Quantity"
+					sap:quickinfo="Billing Quantity of Billable Item"/><Property Name="BitQtyUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Measure"
+					sap:quickinfo="Unit for the Billing Quantity of Billable Items" sap:semantics="unit-of-measure"/><Property Name="PostingLineItem" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Relevant to Posting"
+					sap:quickinfo="Posting-Relevant Line Item"/><Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Division"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company Code"/><Property Name="BusinessArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Business Area"/><Property Name="ProfitCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Profit Center"/><Property Name="MainTransactionLineItem" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Main Transaction"
+					sap:quickinfo="Main Transaction for Line Item"/><Property Name="SubTransactionDocItem" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Subtransaction"
+					sap:quickinfo="Subtransaction for Document Item"/><Property Name="AccDetermID" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Account determin. ID"
+					sap:quickinfo="Account Determination ID"/><Property Name="TaxIncluded" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Gross" sap:quickinfo="Tax Included in Amount"/><Property Name="TaxDetType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax Calculation"
+					sap:quickinfo="Type of Tax Calculation"/><Property Name="TaxDateType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Type of Tax Date"/><Property Name="TaxDeterminationCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax Determination"
+					sap:quickinfo="Indicator: Tax Determination Code"/><Property Name="TaxOnSalesPurc" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Tax Code"
+					sap:quickinfo="Tax on sales/purchases code"/><Property Name="TaxJurisdiction" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Tax Jurisdiction"/><Property Name="OrderNumber" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Order" sap:quickinfo="Order Number"/><Property Name="MainBillItemtext" Type="Edm.String" MaxLength="50" sap:label="Billable Item Text"
+					sap:quickinfo="Text of Main Billable Item (50 Characters)"/><Property Name="TranslationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Translation Date"/><Property Name="ExchangeRate" Type="Edm.Decimal" Precision="9" Scale="5" sap:label="Exchange rate"/><Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Cost Center"/><Property Name="MaterialNumber" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material"
+					sap:quickinfo="Material No."/><Property Name="WBSElement" Type="Edm.String" MaxLength="24" sap:display-format="NonNegative" sap:label="WBS Element"
+					sap:quickinfo="Work Breakdown Structure Element (WBS Element)"/><Property Name="PONumber" Type="Edm.String" MaxLength="35" sap:display-format="UpperCase" sap:label="Purchase Order Numbe"
+					sap:quickinfo="P.O Number"/><Property Name="POType" Type="Edm.String" MaxLength="4" sap:label="Purchase Order Type"/><Property Name="BillingBehaviour" Type="Edm.String" MaxLength="4" sap:label="Billing Behavior"/><Property Name="Connectivity" Type="Edm.String" MaxLength="4" sap:label="Connectivity"/><Property Name="ContractTerm" Type="Edm.String" MaxLength="3" sap:label="Contract Term"/><Property Name="EndUserCSN" Type="Edm.String" MaxLength="10" sap:label="End User CSN"/><Property Name="GLAccountNo" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="G/L Account"
+					sap:quickinfo="G/L Account Number"/><Property Name="LicenseUsage" Type="Edm.String" MaxLength="3" sap:label="License Usage"/><Property Name="LicenseDeployment" Type="Edm.String" MaxLength="3" sap:label="License Deployment"/><Property Name="OrderAction" Type="Edm.String" MaxLength="10" sap:label="Order Action"/><Property Name="OrderReasonCode" Type="Edm.String" MaxLength="3" sap:label="Order Reason Code"/><Property Name="InvoiceReference" Type="Edm.String" MaxLength="10" sap:label="Invoice Reference"/><Property Name="ReversalDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Reversal Date"/><Property Name="ReversalReason" Type="Edm.String" MaxLength="2" sap:label="Reversal reason"/><Property Name="ReversalTransactionReference" Type="Edm.String" MaxLength="22" sap:label="Reversal Transaction"
+					sap:quickinfo="Reversal Transaction Reference"/><Property Name="SalesDistrict" Type="Edm.String" MaxLength="6" sap:label="Sales District"/><Property Name="Reference" Type="Edm.String" MaxLength="16" sap:label="Reference"/><Property Name="DeliveredCountry" Type="Edm.String" MaxLength="4" sap:label="Delivered-to Country"/><Property Name="JEPreparer" Type="Edm.String" MaxLength="30" sap:label="XREF1_HD JE preparer"/><Property Name="JEApprover" Type="Edm.String" MaxLength="30" sap:label="XREF2_HD JE approver"/><Property Name="JEPurpose" Type="Edm.String" MaxLength="20" sap:label="JE Purpose"/><Property Name="Assignment" Type="Edm.String" MaxLength="18" sap:label="Assignment"/><Property Name="HSNNo" Type="Edm.String" MaxLength="15" sap:label="HSN/SAC No" sap:quickinfo="HSN No."/><Property Name="BaselineInvoice" Type="Edm.String" MaxLength="10" sap:label="Baseline Invoice#"/><Property Name="InvoiceTitle" Type="Edm.String" MaxLength="10" sap:label="Invoice Title"/><Property Name="DocumentHeaderText" Type="Edm.String" MaxLength="25" sap:label="Document Header Text"/><Property Name="ShipToCSN" Type="Edm.String" MaxLength="10" sap:label="Ship-To CSN"/><Property Name="PaymentTerms" Type="Edm.String" MaxLength="4" sap:label="Payment terms"/><Property Name="OtherNotes" Type="Edm.String" MaxLength="300" sap:label="Other Notes"/><Property Name="BillProcess" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Billing Process"/><Property Name="BillType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Billing Type"/><Property Name="InvoiceLock" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Invoicing Lock"
+					sap:quickinfo="Billing Document Is Locked for Invoicing"/><Property Name="InvoiceProcess" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Invoicing Process"/><Property Name="InvoiceType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Invoicing Type"/><Property Name="ReconciliationKey" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Reconciliation Key"
+					sap:quickinfo="Reconciliation Key for General Ledger"/><Property Name="PostingDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Posting Date"
+					sap:quickinfo="Posting Date in the Document"/><Property Name="TotalAmount" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Amount"
+					sap:quickinfo="Amount in Transaction Currency with +/- Sign"/><Property Name="FICADocumentNo" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Document Number"
+					sap:quickinfo="Number of Contract Accts Rec. &amp; Payable Doc."/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/><NavigationProperty Name="to_BillDocF4" Relationship="ZFI_0271_MJE_ANALYSIS_SRV.assoc_171B7E1ED1A8273692FE6430EF9F4317"
+					FromRole="FromRole_assoc_171B7E1ED1A8273692FE6430EF9F4317" ToRole="ToRole_assoc_171B7E1ED1A8273692FE6430EF9F4317"/><NavigationProperty Name="to_BillItmTypeF4" Relationship="ZFI_0271_MJE_ANALYSIS_SRV.assoc_E14F2D25FA470BB68D58001D689FB689"
+					FromRole="FromRole_assoc_E14F2D25FA470BB68D58001D689FB689" ToRole="ToRole_assoc_E14F2D25FA470BB68D58001D689FB689"/><NavigationProperty Name="to_BPF4" Relationship="ZFI_0271_MJE_ANALYSIS_SRV.assoc_1B101FC287C48350DA92DFCD79C1B5B2"
+					FromRole="FromRole_assoc_1B101FC287C48350DA92DFCD79C1B5B2" ToRole="ToRole_assoc_1B101FC287C48350DA92DFCD79C1B5B2"/><NavigationProperty Name="to_InvDocF4" Relationship="ZFI_0271_MJE_ANALYSIS_SRV.assoc_BB988B9F10A8D538702C408DFF0D5BEF"
+					FromRole="FromRole_assoc_BB988B9F10A8D538702C408DFF0D5BEF" ToRole="ToRole_assoc_BB988B9F10A8D538702C408DFF0D5BEF"/></EntityType>
+			<EntityType Name="ZFI_COV_MJE_BILLITEM_F4Type" sap:label="Search help for Billable item type MJE" sap:content-version="1">
+				<Key><PropertyRef Name="BillItemType"/></Key><Property Name="BillItemType" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Billable Item Type"
+					sap:quickinfo="Type of Billable Item"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="ZFI_COV_MJE_BP_F4Type" sap:label="Search help for Business Partner MJE" sap:content-version="1">
+				<Key><PropertyRef Name="BusinessPartner"/></Key><Property Name="BusinessPartner" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"
+					sap:label="Business Partner" sap:quickinfo="Business Partner Number for Billing and Invoicing"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/></EntityType>
+			<Association Name="assoc_E14F2D25FA470BB68D58001D689FB689" sap:content-version="1"><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType" Multiplicity="1" Role="FromRole_assoc_E14F2D25FA470BB68D58001D689FB689"/><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_BILLITEM_F4Type" Multiplicity="1" Role="ToRole_assoc_E14F2D25FA470BB68D58001D689FB689"/></Association>
+			<Association Name="assoc_1B101FC287C48350DA92DFCD79C1B5B2" sap:content-version="1"><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType" Multiplicity="1" Role="FromRole_assoc_1B101FC287C48350DA92DFCD79C1B5B2"/><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_BP_F4Type" Multiplicity="1" Role="ToRole_assoc_1B101FC287C48350DA92DFCD79C1B5B2"/></Association>
+			<Association Name="assoc_BB988B9F10A8D538702C408DFF0D5BEF" sap:content-version="1"><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType" Multiplicity="1" Role="FromRole_assoc_BB988B9F10A8D538702C408DFF0D5BEF"/><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_INVDOC_F4Type" Multiplicity="1" Role="ToRole_assoc_BB988B9F10A8D538702C408DFF0D5BEF"/></Association>
+			<Association Name="assoc_171B7E1ED1A8273692FE6430EF9F4317" sap:content-version="1"><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType" Multiplicity="1" Role="FromRole_assoc_171B7E1ED1A8273692FE6430EF9F4317"/><End Type="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_BILLDOC_F4Type" Multiplicity="1" Role="ToRole_assoc_171B7E1ED1A8273692FE6430EF9F4317"/></Association>
+			<EntityContainer Name="ZFI_0271_MJE_ANALYSIS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="ZFI_COV_BILLDOC_F4" EntityType="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_BILLDOC_F4Type" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZFI_COV_INVDOC_F4" EntityType="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_INVDOC_F4Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZFI_COV_MJE_ANALYSIS" EntityType="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="ZFI_COV_MJE_BILLITEM_F4" EntityType="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_BILLITEM_F4Type" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="ZFI_COV_MJE_BP_F4" EntityType="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_BP_F4Type" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+				<AssociationSet Name="assoc_1B101FC287C48350DA92DFCD79C1B5B2" Association="ZFI_0271_MJE_ANALYSIS_SRV.assoc_1B101FC287C48350DA92DFCD79C1B5B2"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZFI_COV_MJE_ANALYSIS" Role="FromRole_assoc_1B101FC287C48350DA92DFCD79C1B5B2"/><End EntitySet="ZFI_COV_MJE_BP_F4" Role="ToRole_assoc_1B101FC287C48350DA92DFCD79C1B5B2"/></AssociationSet>
+				<AssociationSet Name="assoc_171B7E1ED1A8273692FE6430EF9F4317" Association="ZFI_0271_MJE_ANALYSIS_SRV.assoc_171B7E1ED1A8273692FE6430EF9F4317"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZFI_COV_MJE_ANALYSIS" Role="FromRole_assoc_171B7E1ED1A8273692FE6430EF9F4317"/><End EntitySet="ZFI_COV_BILLDOC_F4" Role="ToRole_assoc_171B7E1ED1A8273692FE6430EF9F4317"/></AssociationSet>
+				<AssociationSet Name="assoc_E14F2D25FA470BB68D58001D689FB689" Association="ZFI_0271_MJE_ANALYSIS_SRV.assoc_E14F2D25FA470BB68D58001D689FB689"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZFI_COV_MJE_ANALYSIS" Role="FromRole_assoc_E14F2D25FA470BB68D58001D689FB689"/><End EntitySet="ZFI_COV_MJE_BILLITEM_F4" Role="ToRole_assoc_E14F2D25FA470BB68D58001D689FB689"/></AssociationSet>
+				<AssociationSet Name="assoc_BB988B9F10A8D538702C408DFF0D5BEF" Association="ZFI_0271_MJE_ANALYSIS_SRV.assoc_BB988B9F10A8D538702C408DFF0D5BEF"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZFI_COV_MJE_ANALYSIS" Role="FromRole_assoc_BB988B9F10A8D538702C408DFF0D5BEF"/><End EntitySet="ZFI_COV_INVDOC_F4" Role="ToRole_assoc_BB988B9F10A8D538702C408DFF0D5BEF"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType/BillingDocument">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Search help for billing document"/><PropertyValue Property="CollectionPath" String="ZFI_COV_BILLDOC_F4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BillingDocument"/><PropertyValue Property="ValueListProperty" String="BillingDocument"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType/InvoiceDocument">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Search help for Invoice Document"/><PropertyValue Property="CollectionPath" String="ZFI_COV_INVDOC_F4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="InvoiceDocument"/><PropertyValue Property="ValueListProperty" String="InvoiceDocument"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType/BillItemType">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Search help for Billable item type MJE"/><PropertyValue Property="CollectionPath" String="ZFI_COV_MJE_BILLITEM_F4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BillItemType"/><PropertyValue Property="ValueListProperty" String="BillItemType"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_COV_MJE_ANALYSISType/BusinessPartner">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Search help for Business Partner MJE"/><PropertyValue Property="CollectionPath" String="ZFI_COV_MJE_BP_F4"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BusinessPartner"/><PropertyValue Property="ValueListProperty" String="BusinessPartner"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_0271_MJE_ANALYSIS_SRV_Entities">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZFI_0271_MJE_ANALYSIS_SRV.ZFI_0271_MJE_ANALYSIS_SRV_Entities/ZFI_COV_MJE_ANALYSIS">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="FilterExpressionRestrictions">
+							<Collection>
+								<Record><PropertyValue Property="Property" PropertyPath="InvoiceDocument"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="BillItemType"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="BusinessPartner"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZFI_0271_MJE_ANALYSIS_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZFI_0271_MJE_ANALYSIS_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

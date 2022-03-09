@@ -12,8 +12,8 @@
   "ui5": {
     "dependencies": [
       "@sap/ui5-builder-webide-extension"
+      
     ]
   },
   "private": "true"
-  
 }
